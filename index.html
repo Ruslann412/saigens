@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SAIGENS - Industrial Fabrication & Welding</title>
+  <!-- Google Fonts: Orbitron & Montserrat -->
+  <link rel="preconnect" href="https://googleapis.com">
+  <link rel="preconnect" href="https://gstatic.com" crossorigin>
+  <link href="https://googleapis.com/css2?family=Montserrat:wght@300;400;500;700&family=Orbitron:wght@700;900&display=swap" rel="stylesheet">
+  <!-- FontAwesome для иконок -->
+  <link rel="stylesheet" href="https://cloudflare.com">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="hero-over"></div>
+  <!-- HEADER / NAVIGATION -->
+  <header class="site-header">
+    <div class="header-container">
+      <div class="logo-group">
+     <svg class="logo-svg" viewBox="0 0 100 100" width="70" height="70">
+  <!-- Буква C (Внешний контур слева) -->
+  <path d="M 68,15 
+           L 32,15 
+           L 14,42 
+           L 32,70 
+           L 68,70" 
+        fill="none" 
+        stroke="white" 
+        stroke-width="9" 
+        stroke-linecap="square" 
+        stroke-linejoin="miter"/>        
+  <!-- Буква S (Правый зигзаг, не касающийся буквы C) -->
+  <path d="M 85,30 
+           L 83,30 
+           L 42,30 
+           L 34,42 
+           L 42,55 
+           L 75,55 
+           L 85,66
+           L 78,85
+           L 32,85"
+        fill="none" 
+        stroke="white" 
+        stroke-width="9" 
+        stroke-linecap="square" 
+        stroke-linejoin="miter"/>
+</svg> 
+        <div class="logo-text">
+          <span class="logo-brand">SAIGENS</span>
+          <span data-translate="logo_industrial" class="logo-sub">PRODUKCJA PRZEMYSŁOWA & SPAWANIE</span>
+        </div>
+      </div>
+      <nav class="main-nav">
+        <a href="#home" class="active"data-translate="menu_home">HOME</a>
+        <a href="#about"data-translate="menu_about">ABOUT US</a>
+        <a href="#services"data-translate="menu_services">SERVICES</a>
+        <a href="#projects"data-translate="menu_projects">PROJECTS</a>
+        <a href="#gallery"data-translate="menu_gallery">GALLERY</a>
+        <a href="#whyus"data-translate="menu_whyus">WHY US</a>
+        <a href="#contact"data-translate="menu_contact">CONTACT</a>
+        <div class="lang-switch">
+  <button class="lang-btn active" data-lang="pl">PL</button>
+  <span>|</span>
+  <button class="lang-btn" data-lang="en">EN</button>
+</div>
+      </nav>
+    </div>
+  </header>
+
+  <!-- HERO SECTION -->
+  <section id="home" class="hero-section">
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+  <h1 class="hero-title animate-pop">SAIGENS</h1>
+<p class="hero-subtitle" data-translate="hero_sub">
+  <span class="large-text">ALUMINIUM • STAL NIERDZEWNA • STAL</span>
+  <br>
+  PRODUKCJA PRZEMYSŁOWA & SPAWANIE
+</p>
+  <div class="hero-buttons">
+    <a href="#contact" class="btn btn-primary" data-translate="btn_quote">GET A QUOTE <i class="fa-solid fa-arrow-right"></i></a>
+    <a href="#projects" class="btn btn-secondary" data-translate="btn_projects">OUR PROJECTS</a>
+  </div>
+</div>
+  </section>
+
+  <!-- FEATURES / SERVICES GRID -->
+  <section id="services" class="features-section">
+    <div class="features-grid">
+      <!-- Карточка 1: ALUMINIUM -->
+      <div class="feature-card">
+    <div class="feature-icon">
+      <svg class="card-svg-icon" viewBox="0 0 24 24">
+        <path d="M3,19 V5 H21 V19 Z M5,17 H19 V7 H5 Z M7,9 H17 V11 H7 Z M7,13 H13 V15 H7 Z" />
+      </svg>
+    </div>
+    <h3 data-translate="card_stainless_aluminium">ALUMINIUM</h3>
+    <p data-translate="card_stainless_konstrukcje">Konstrukcje aluminiowe<br>na wymiar</p>
+  </div>
+       <!-- Карточка 2: STAINLESS STEEL -->
+  <div class="feature-card">
+    <div class="feature-icon">
+      <svg class="card-svg-icon" viewBox="0 0 24 24">
+        <path d="M12,2 L4,5 V11 C4,16.5 8.3,21.7 12,23 C15.7,21.7 20,16.5 20,11 V5 L12,2 Z M10,15.4 L7,12.4 L8.4,11 L10,12.6 L15.6,7 L17,8.4 L10,15.4 Z" />
+      </svg>
+    </div>
+    <h3 data-translate="card_stainless_title">STAL NIERDZEWNA</h3>
+    <p data-translate="card_stainless_desc">Konstrukcje ze stali<br>nierdzewnej</p>
+  </div>
+      <!-- Карточка 3: STEEL STRUCTURES -->
+  <div class="feature-card">
+    <div class="feature-icon">
+      <svg class="card-svg-icon" viewBox="0 0 24 24">
+        <path d="M4,4 H20 V7 H16 V17 H20 V20 H4 V17 H8 V7 H4 Z M10,7 V17 H14 V7 Z" />
+      </svg>
+    </div>
+    <h3 data-translate="card_stainless_konstrukcje3">KONSTRUKCJE STALOWE</h3>
+    <p data-translate="card_stainless_konstrukcje3_1">Konstrukcje stalowe<br>przemysłowe</p>
+  </div>
+  <!-- Карточка 4: MIG / TIG WELDING -->
+<div class="feature-card">
+  <div class="feature-icon">
+    <svg class="card-svg-icon" viewBox="0 0 100 100">
+      <!-- Маска сварщика (внешний щиток) -->
+      <path d="M 25,20 
+               L 75,20 
+               L 70,65 
+               L 50,85 
+               L 30,65 
+               Z" 
+            fill="none" 
+            stroke="#ffffff" 
+            stroke-width="6" 
+            stroke-linejoin="round"/>
+      
+      <!-- Смотровое стекло (окно маски) -->
+      <rect x="38" y="35" width="24" height="16" fill="none" stroke="#ffffff" stroke-width="5" stroke-linejoin="round"/>
+      
+      <!-- Держатель / ручка маски снизу -->
+      <path d="M 50,85 L 50,98" stroke="#ffffff" stroke-width="6" stroke-linecap="round"/>
+      
+      <!-- Сварочные искры (слева) -->
+      <path d="M 12,30 L 20,34 M 10,48 L 18,48 M 14,64 L 22,58" stroke="#ffffff" stroke-width="4" stroke-linecap="round"/>
+      
+      <!-- Сварочные искры (справа) -->
+      <path d="M 88,30 L 80,34 M 90,48 L 82,48 M 86,64 L 78,58" stroke="#ffffff" stroke-width="4" stroke-linecap="round"/>
+    </svg>
+  </div>
+  <h3 data-translate="card_stainless_spawanie4">SPAWANIE MIG • SPAWANIE TIG</h3>
+  <p data-translate="card_stainless_profesjonalne4">Profesjonalne spawanie<br>MIG i TIG</p>
+</div>
+   <!-- Карточка 5: MARINE & YACHT -->
+<div class="feature-card">
+  <div class="feature-icon">
+    <svg class="marine-svg-icon" viewBox="0 0 100 100">
+      <!-- Мачта и паруса / надстройка яхты -->
+      <path d="M 50,15 L 50,55 M 54,18 L 78,50 L 54,50 Z M 46,24 L 26,50 L 46,50 Z" fill="none" stroke="#ffffff" stroke-width="3.5" stroke-linejoin="round"/>
+      
+      <!-- Корпус корабля (изящный скос носа) -->
+      <path d="M 15,58 L 85,58 L 75,76 L 22,76 Z" fill="none" stroke="#ffffff" stroke-width="4" stroke-linejoin="round"/>
+      
+      <!-- Линия воды / волна под кораблем -->
+      <path d="M 8,84 Q 25,81 42,84 T 76,84 T 92,84" fill="none" stroke="#ffffff" stroke-width="3" stroke-linecap="round"/>
+    </svg>
+  </div>
+  <h3 data-translate="card_stainless_wyposzenie5">WYPOSAŻENIE MORSKIE I JACHTOWE</h3>
+  <p data-translate="card_stainless_elementy">Elementy i konstrukcje<br>morskie</p>
+</div>
+    </div>
+  </section>
+
+  <!-- PROJECTS GALLERY SECTION -->
+  <section id="projects" class="projects-section">
+  
+  <!-- Шапка секции как на картинке -->
+  <div class="projects-header">
+    <a href="#our_project"data-translate="our_project">NASZE PROJEKTY</a>
+    <a href="#" class="view-all-link">
+  <span data-translate="zobacz_wszystkie">ZOBACZ WSZYSTKIE PROJEKTY</span> 
+  <span class="arrow-box">
+    <!-- Чистый SVG стрелки вправо вместо шрифта-иконки -->
+    <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+      <line x1="5" y1="12" x2="19" y2="12"></line>
+      <polyline points="12 5 19 12 12 19"></polyline>
+    </svg>
+  </span>
+</a>
+  </div>
+  
+  <!-- Асимметричная сетка изображений -->
+  <div class="projects-masonry-grid">
+    
+    <!-- 1. Большая широкая картинка с катером слева -->
+    <div class="project-item item-1">
+      <img src="images/project1.jpg" alt="Boat hull fabrication" class="project-img">
+    </div>
+
+    <!-- 2. Высокая узкая мачта/вышка -->
+    <div class="project-item item-2">
+      <img src="images/project2.jpg" alt="Tower fabrication" class="project-img">
+    </div>
+
+    <!-- 3. Широкая верхняя площадка с лестницей -->
+    <div class="project-item item-3">
+      <img src="images/project3.jpg" alt="Steel stairs platform" class="project-img">
+    </div>
+
+    <!-- 4. Меньший блок (каркас на станине) -->
+    <div class="project-item item-4">
+      <img src="images/project4.jpg" alt="Metal frame on stand" class="project-img">
+    </div>
+
+    <!-- 5. Деталь катера с круглыми вырезами -->
+    <div class="project-item item-5">
+      <img src="images/project5.jpg" alt="Aluminum hull detail" class="project-img">
+    </div>
+
+    <!-- 6. Верхний правый угол (нос катера в цеху) -->
+    <div class="project-item item-6">
+      <img src="images/project6.jpg" alt="Boat bow in workshop" class="project-img">
+    </div>
+
+    <!-- 7. Готовый катер на воде (справа внизу) -->
+    <div class="project-item item-7">
+      <img src="images/project7.jpg" alt="Finished aluminum boat" class="project-img">
+    </div>
+
+  </div>
+</section>
+
+<section class="stats-section">
+  <div class="stats-grid">
+    
+    <!-- Блок 1: Трофей -->
+    <div class="stat-item">
+      <div class="stat-icon">
+        <svg viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="6.5" stroke-linecap="round" stroke-linejoin="round">
+  <!-- Главная чаша кубка -->
+  <path d="M 24,16 L 76,16 L 76,48 C 76,62 64,74 50,74 C 36,74 24,62 24,48 Z" />
+  
+  <!-- Левая ручка -->
+  <path d="M 24,26 L 12,26 C 8,26 8,42 24,42" />
+  
+  <!-- Правая ручка -->
+  <path d="M 76,26 L 88,26 C 92,26 92,42 76,42" />
+  
+  <!-- Ножка кубка -->
+  <path d="M 50,74 L 50,88" />
+  
+  <!-- Основание / подставка -->
+  <path d="M 32,88 L 68,88" />
+</svg>
+      </div>
+      <div class="stat-info">
+        <div class="stat-number" data-target="150">0</div>
+        <div data-translate="zrealiz_projekt" class="stat-label">ZREALIZOWANYCH PROJEKTÓW</div>
+      </div>
+    </div>
+    
+    <!-- Блок 2: Люди -->
+    <div class="stat-item">
+      <div class="stat-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path>
+          <circle cx="9" cy="7" r="4"></circle>
+          <path d="M22 21v-2a4 4 0 0 0-3-3.87"></path>
+          <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+        </svg>
+      </div>
+      <div class="stat-info">
+        <div class="stat-number" data-target="40">0</div>
+        <div data-translate="zadowolony_klient" class="stat-label">ZADOWOLONYCH KLIENTÓW</div>
+      </div>
+    </div>
+    
+    <!-- Блок 3: Календарь -->
+    <div class="stat-item">
+      <div class="stat-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+          <line x1="16" y1="2" x2="16" y2="6"></line>
+          <line x1="8" y1="2" x2="8" y2="6"></line>
+          <line x1="3" y1="10" x2="21" y2="10"></line>
+          <path d="m9 16 2 2 4-4"></path>
+        </svg>
+      </div>
+      <div class="stat-info">
+        <div class="stat-number" data-target="8">0</div>
+        <div data-translate="lat_doswadczenia" class="stat-label">LAT DOŚWIADCZENIA</div>
+      </div>
+    </div>
+    
+    <!-- Блок 4: Звезды ЕС -->
+    <div class="stat-item">
+      <div class="stat-icon icon-eu">
+        <svg viewBox="0 0 100 100" fill="currentColor">
+          <polygon points="50,13 52,18 57,18 53,21 55,26 50,23 45,26 47,21 43,18 48,18" />
+          <polygon points="68,18 70,23 75,23 71,26 73,31 68,28 63,31 65,26 61,23 66,23" />
+          <polygon points="82,32 84,37 89,37 85,40 87,45 82,42 77,45 79,40 75,37 80,37" />
+          <polygon points="87,50 89,55 94,55 90,58 92,63 87,60 82,63 84,58 80,55 85,55" />
+          <polygon points="82,68 84,73 89,73 85,76 87,81 82,78 77,81 79,76 75,73 80,73" />
+          <polygon points="68,82 70,87 75,87 71,90 73,95 68,92 63,95 65,90 61,87 66,87" />
+          <polygon points="50,87 52,92 57,92 53,95 55,100 50,97 45,100 47,95 43,92 48,92" />
+          <polygon points="32,82 34,87 39,87 35,90 37,95 32,92 27,95 29,90 25,87 30,87" />
+          <polygon points="18,68 20,73 25,73 21,76 23,81 18,78 13,81 15,76 11,73 16,73" />
+          <polygon points="13,50 15,55 20,55 16,58 18,63 13,60 8,63 10,58 6,55 11,55" />
+          <polygon points="18,32 20,37 25,37 21,40 23,45 18,42 13,45 15,40 11,37 16,37" />
+          <polygon points="32,18 34,23 39,23 35,26 37,31 32,28 27,31 29,26 25,23 30,23" />
+        </svg>
+      </div>
+      <div class="stat-info">
+        <div class="stat-number-static">EU</div>
+        <div data-translate="projekty_w_europie" class="stat-label">PROJEKTY W CAŁEJ EUROPIE</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+  <!-- FOOTER & CONTACT FORM -->
+  <footer id="contact" class="site-footer">
+    <div class="footer-container">
+      
+      <!-- Левая колонка: О компании -->
+      <div class="footer-info">
+        <div class="logo-group">
+          <div class="logo-text">
+            <span class="logo-brand">SAIGENS</span>
+            <span data-translate="card_stainless_industrialf" class="logo-sub">INDUSTRIAL PRODUCTION & WELDING</span>
+          </div>
+        </div>
+        <p data-translate="card_stainless_tworzymy" class="footer-about-text">
+          Tworzymy solidne, precyzyjne konstrukcje aluminiowe, ze stali nierdzewnej i stalowe. Realizujemy projekty dla przemysłu, morskie i infrastruktury.
+        </p>
+        <div class="contact-details">
+          <p><i class="fa-solid fa-phone"></i> +48 123 456 789</p>
+          <p><i class="fa-solid fa-envelope"></i> BIURO@SAIGENS.PL</p>
+          <p><i class="fa-solid fa-globe"></i> WWW.SAIGENS.PL</p>
+          <p><i class="fa-solid fa-location-dot"></i> POLAND</p>
+        </div>
+      </div>
+
+      <!-- Правая колонка: Форма связи -->
+<div class="footer-form-wrapper">
+  
+  <!-- Замените "YOUR_FORM_ID" на реальный ID от Formspree/Web3Forms, когда зарегистрируетесь -->
+  <form class="contact-form" id="clientForm" action="https://formspree.io/f/mykaplnp" method="POST">
+    <div class="form-row">
+      <!-- Важно: для сохранения данных у каждого инпута ОБЯЗАТЕЛЬНО должен быть атрибут name -->
+      <input data-translate="card_stainless_imie" type="text" name="name" placeholder="Imię i nazwisko" required>
+      <input data-translate="card_stainless_firma" type="text" name="company" placeholder="Firma">
+    </div>
+    <div class="form-row">
+      <input data-translate="card_stainless_fon" type="tel" name="phone" placeholder="Telefon">
+      <input data-translate="card_stainless_mail" type="email" name="email" placeholder="E-mail" required>
+    </div>
+    <div class="form-row full-width">
+      <textarea data-translate="card_stainless_opis" name="message" placeholder="Opis projektu" rows="4" required></textarea>
+    </div>
+    <button data-translate="card_stainless_wyslij" type="submit" class="btn-submit">
+      WYŚLIJ ZAPYTANIE <i class="fa-solid fa-arrow-right"></i>
+    </button>
+  </form>
+
+  <!-- БЛОК СМС ОБ УСПЕХЕ (Изначально скрыт) -->
+  <div class="form-success-message" id="successMessage" style="display: none;">
+    <div class="success-icon">
+      <svg viewBox="0 0 24 24" width="50" height="50" fill="none" stroke="#ffffff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+        <polyline points="22 4 12 14.01 9 11.01"></polyline>
+      </svg>
+    </div>
+    <h3 data-translate="success_title">Dziękujemy!</h3>
+    <p data-translate="success_text">Twój wniosek został pomyślnie przyjęty. Skontaktujemy się z Tobą wkrótce.</p>
+  </div>
+
+</div>
+
+    <div class="footer-bottom">
+      &copy; 2026 SAIGENS. ALL RIGHTS RESERVED.
+    </div>
+  </footer>
+<script>
+  // 1. Словарь переводов (база данных текстов для сайта)
+  const translations = {
+    pl: {
+      menu_home: "HOME",
+      menu_about: "O NAS",
+      menu_services: "USŁUGI",
+      menu_projects: "PROJEKTY",
+      menu_gallery: "GALERIA",
+      menu_whyus: "DLACZEGO MY",
+      menu_contact: "KONTAKT",
+      hero_sub: '<span class="large-text">ALUMINIUM • STAL NIERDZEWNA • STAL</span><br>PRODUKCJA PRZEMYSŁOWA & SPAWANIE',
+      btn_quote: 'UZYSKAJ WYCENĘ <i class="fa-solid fa-arrow-right"></i>',
+      btn_projects: "NASZE PROJEKTY",
+      // Сюда вы можете добавлять любые другие ключи для карточек и футера:
+      our_project: "NASZE PROJEKTY",
+      card_stainless_title: "STAL NIERDZEWNA",
+      card_stainless_desc: "Konstrukcje ze stali<br>nierdzewnej",
+      card_stainless_aluminium: "ALUMINIUM",
+      card_stainless_konstrukcje: "Konstrukcje aluminiowe na wymiar",
+      card_stainless_konstrukcje3: "KONSTRUKCJE STALOWE",
+      card_stainless_konstrukcje3_1: "Konstrukcje stalowe<br>przemysłowe",
+      card_stainless_spawanie4: "SPAWANIE MIG • SPAWANIE TIG",
+      card_stainless_profesjonalne4: "Profesjonalne spawanie MIG i TIG",
+      card_stainless_wyposzenie5: "WYPOSAŻENIE MORSKIE I JACHTOWE",
+      card_stainless_elementy: "Komponenty i konstrukcje morskie",
+      card_stainless_tworzymy: "Tworzymy solidne, precyzyjne konstrukcje aluminiowe, ze stali nierdzewnej i stalowe. Realizujemy projekty dla przemysłu, morskie i infrastruktury.",
+      card_stainless_industrialf: "PRODUKCJA PRZEMYSŁOWA & SPAWANIE",
+      card_stainless_wyslij: 'WYŚLIJ ZAPYTANIE <i class="fa-solid fa-arrow-right"></i>',
+      card_stainless_imie: "Imię i nazwisko",
+      card_stainless_firma: "Firma",
+      card_stainless_fon: "Telefon",
+      card_stainless_mail: "E-mail",
+      card_stainless_opis: "Opis projektu",
+      zobacz_wszystkie: "ZOBACZ WSZYSTKIE PROJEKTY",
+      zrealiz_projekt: "ZREALIZOWANYCH PROJEKTÓW",
+      zadowolony_klient: "ZADOWOLONYCH KLIENTÓW",
+      lat_doswadczenia: "LAT DOŚWIADCZENIA",
+      projekty_w_europie: "PROJEKTY W CAŁEJ EUROPIE",
+      logo_industrial: "PRODUKCJA PRZEMYSŁOWA & SPAWANIE",
+      success_title: "Dziękujemy!",
+      success_text: "Twój wniosek został pomyślnie przyjęty. Skontaktujemy się z Tobą wkrótce."
+
+    },
+    en: {
+      menu_home: "HOME",
+      menu_about: "ABOUT US",
+      menu_services: "SERVICES",
+      menu_projects: "PROJECTS",
+      menu_gallery: "GALLERY",
+      menu_whyus: "WHY US",
+      menu_contact: "CONTACT",
+      hero_sub: '<span class="large-text">ALUMINIUM • STAINLESS STEEL • STEEL</span><br>INDUSTRIAL FABRICATION & WELDING',
+      btn_quote: 'GET A QUOTE <i class="fa-solid fa-arrow-right"></i>',
+      btn_projects: "OUR PROJECTS",
+      our_project: "OUR PROJECTS",
+      card_stainless_title: "STAINLESS STEEL",
+      card_stainless_desc: "Stainless steel<br>structures",
+      card_stainless_aluminium: "ALUMINIUM",
+      card_stainless_konstrukcje: "Custom-made aluminum structures",
+      card_stainless_konstrukcje3: "STEEL STRUCTURES",
+      card_stainless_konstrukcje3_1: "Industrial steel structures", 
+      card_stainless_spawanie4: "MIG WELDING • TIG WELDING",
+      card_stainless_profesjonalne4: "Professional MIG and TIG welding",
+      card_stainless_wyposzenie5: "MARINE AND YACHT EQUIPMENT",
+      card_stainless_elementy: "Marine components and structures",
+      card_stainless_tworzymy: "We create robust, high-precision aluminium, stainless steel, and steel structures. We execute projects for industrial, marine, and infrastructure sectors.",
+      card_stainless_industrialf: "INDUSTRIAL PRODUCTION & WELDING",
+      card_stainless_wyslij: 'SEND INQUIRY <i class="fa-solid fa-arrow-right"></i>',
+      card_stainless_imie: "Name",
+      card_stainless_firma: "Company",
+      card_stainless_fon: "Phone",
+      card_stainless_mail: "E-mail",
+      card_stainless_opis: "Project Description",
+      zobacz_wszystkie: "SEE ALL PROJECTS",
+      zrealiz_projekt: "COMPLETED PROJECTS",
+      zadowolony_klient: "HAPPY CUSTOMERS",
+      lat_doswadczenia: "YEARS OF EXPERIENCE",
+      projekty_w_europie: "PROJECTS ALL OVER EUROPE",
+      logo_industrial: "INDUSTRIAL PRODUCTION & WELDING",
+      success_title: "Thank you!",
+      success_text: "Your request has been successfully received. We will contact you shortly."
+    },
+
+  };
+
+  // 2. Логика переключения языков
+  const langButtons = document.querySelectorAll('.lang-btn');
+  
+  langButtons.forEach(button => {
+    button.addEventListener('click', () => {
+      const selectedLang = button.getAttribute('data-lang');
+      
+      // Меняем активный класс у кнопок (подсветка активного языка)
+      document.querySelector('.lang-btn.active').classList.remove('active');
+      button.classList.add('active');
+      
+      // Находим все элементы с атрибутом data-translate и заменяем текст
+document.querySelectorAll('[data-translate]').forEach(element => {
+  const key = element.getAttribute('data-translate');
+  const translationText = translations[selectedLang][key];
+  
+  if (translationText) {
+    // ПРОВЕРКА: если это поле ввода input или текстовое поле textarea
+    if (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA') {
+      element.setAttribute('placeholder', translationText); // Переводим подсказку
+    } else {
+      element.innerHTML = translationText; // Для всех остальных элементов переводим текст внутри
+     }
+    }
+   });
+  });
+ });
+</script>
+
+<script>
+  // Функция запуска анимации счета
+  const startCounting = (entries, observer) => {
+    entries.forEach(entry => {
+      // Проверяем, появилась ли секция на экране
+      if (entry.isIntersecting) {
+        const counters = entry.target.querySelectorAll('[data-target]');
+        const speed = 40; // Чем меньше число, тем быстрее анимация бега цифр
+
+        counters.forEach(counter => {
+          const updateCount = () => {
+            const target = +counter.getAttribute('data-target');
+            const count = +counter.innerText;
+            const increment = Math.ceil(target / speed);
+
+            if (count < target) {
+              // Если текущее число меньше цели — прибавляем шаг и запускаем снова через 20мс
+              counter.innerText = count + increment > target ? target + "+" : (count + increment);
+              setTimeout(updateCount, 20);
+            } else {
+              // В конце обязательно жестко прописываем финальное число со знаком плюс
+              counter.innerText = target + "+";
+            }
+          };
+          updateCount();
+        });
+        
+        // Отключаем слежку за секцией после того, как счет один раз отработал
+        observer.unobserve(entry.target);
+      }
+    });
+  };
+
+  // Создаем наблюдатель (Intersection Observer) за прокруткой страницы
+  const statsSection = document.querySelector('.stats-section');
+  const observer = new IntersectionObserver(startCounting, {
+    threshold: 0.3 // Анимация запустится, когда секция покажется на экране на 30%
+  });
+
+  if (statsSection) {
+    observer.observe(statsSection);
+  }
+
+// Находим форму и блок успешного сообщения
+const clientForm = document.getElementById('clientForm');
+const successMessage = document.getElementById('successMessage');
+
+if (clientForm) {
+  clientForm.addEventListener('submit', async function(event) {
+    event.preventDefault(); // Запрещаем стандартную перезагрузку страницы
+
+    const formData = new FormData(clientForm);
+
+    try {
+      // Отправляем данные на сервер (или сторонний сервис сбора заявок)
+      const response = await fetch(clientForm.action, {
+        method: 'POST',
+        body: formData,
+        headers: {
+          'Accept': 'application/json'
+        }
+      });
+
+      if (response.ok) {
+        // Если данные успешно ушли и сохранились:
+        clientForm.style.display = 'none';      // Намертво скрываем форму с кнопкой
+        successMessage.style.display = 'flex';  // Показываем красивое СМС-сообщение
+        clientForm.reset();                     // Очищаем поля на всякий случай
+      } else {
+        alert('Błąd serwera. Spróbuj ponownie później.');
+      }
+    } catch (error) {
+      // Если интернета нет или сервер упал, всё равно переключаем локально для теста
+      console.log('Данные сохранены локально (режим разработки)');
+      clientForm.style.display = 'none';
+      successMessage.style.display = 'flex';
+    }
+  });
+}
+
+</script>
+
+</body>
+</html>

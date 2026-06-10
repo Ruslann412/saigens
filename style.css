@@ -1,0 +1,899 @@
+/* ОБЩИЕ СБРОСЫ И НАСТРОЙКИ СТРАНИЦЫ */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth; /* Плавный скролл при клике на меню */
+  font-family: 'Montserrat', sans-serif;
+  background-color: #050a12;
+  color: #ffffff;
+}
+
+/* ШАПКА САЙТА И МЕНЮ НАВИГАЦИИ */
+.site-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  background-color: rgba(5, 10, 18, 0.85);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.header-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 15px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Логотип */
+.logo-group {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.logo-group:hover {
+  transform: scale(1.2); /* Легкое увеличение лого при наведении */
+}
+
+.logo-svg {
+  background: transparent; /* Прозрачный фон */
+  display: block;
+}
+
+.logo-svg path {
+  stroke: #ffffff;         /* Белый цвет букв */
+  stroke-width: 8px;       /* Плотная толщина линий как на картинке */
+  stroke-miterlimit: 10;
+}
+
+.logo-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.logo-brand {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 2rem;
+  font-weight: 900;
+  letter-spacing: 2px;
+  line-height: 1;
+}
+
+.logo-sub {
+  font-size: 1rem;
+  letter-spacing: 0.5px;
+  opacity: 0.7;
+  margin-top: 2px;
+}
+
+/* Ссылки навигации */
+.main-nav {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.main-nav a {
+  color: #a0a8b5;
+  text-decoration: none;
+  font-size: 1.2rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  transition: color 0.3s ease, transform 0.3s ease;
+  position: relative;
+  padding: 5px 0;
+}
+
+.main-nav a:hover, .main-nav a.active {
+  color: #ffffff;
+}
+
+/* Анимированная полоса под активной ссылкой */
+.main-nav a::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: #ffffff;
+  transition: width 0.3s ease;
+}
+
+.main-nav a:hover::after, .main-nav a.active::after {
+  width: 100%;
+}
+
+.lang-switch {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-left: 15px;
+  opacity: 0.6;
+}
+
+.form-success-message {
+  width: 100%;
+  min-height: 280px; /* Чтобы высота блока была такой же, как у формы */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 30px;
+  background-color: #09101d; /* Тот же темный фон */
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  animation: fadeInForm 0.5s ease forwards;
+}
+
+.success-icon {
+  margin-bottom: 20px;
+  color: #ffffff;
+}
+
+.form-success-message h3 {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 1.6rem;
+  letter-spacing: 2px;
+  margin-bottom: 10px;
+  color: #ffffff;
+}
+
+.form-success-message p {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.9rem;
+  color: #a0a8b5;
+  max-width: 400px;
+  line-height: 1.6;
+}
+
+@keyframes fadeInForm {
+  0% { opacity: 0; transform: scale(0.98); }
+  100% { opacity: 1; transform: scale(1); }
+}
+
+/* ГЛАВНЫЙ ЭКРАН (HERO) */
+
+.hero-section {
+  position: relative;
+  min-height: 100vh; /* Растягивает блок на всю высоту экрана */
+  width: 100%;
+  
+  /* Подключаем картинку и настраиваем её поведение */
+  background-image: url('images/hero-bg.jpg');
+  background-position: center top; /* Выравнивание по центру и верхнему краю */
+  background-size: cover;          /* Картинка пропорционально заполняет весь блок */
+  background-repeat: no-repeat;    /* Запрещаем размножение картинки */
+  background-attachment: scroll;    /* Эффект параллакса: фон застывает при скролле */
+  z-index: 1; /* Картинка остается строго на заднем плане */
+ /* ИЗМЕНЕНО: делает фоновое изображение светлее и сочнее */
+  filter: brightness(1.5) contrast(1.1); 
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@media (max-width: 768px) {
+  .hero-section {
+    background-attachment: scroll; /* Отключает фиксацию фона на мобильных */
+  }
+}
+.hero-over {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  /* Градиент: сверху прозрачный, снизу полностью переходит в цвет фона сайта */
+  background: linear-gradient(
+    to bottom, 
+    rgba(5, 10, 18, 0.1) 0%, 
+    rgba(5, 10, 18, 0.3) 50%, 
+    #050a12 100%
+  );
+  z-index: 1; /* Размещается строго над картинкой, но под текстом */
+}
+
+/* .hero-section {
+  position: relative;
+  height: 100vh;
+  min-height: 600px;
+  /* Для полноценного отображения замените URL на вашу картинку с цехом */
+ /* background: url('https://unsplash.com') center/cover no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding-top: 80px;
+}*/
+
+
+.hero-over {
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 100%;
+  background: linear-gradient(to bottom, rgba(5,10,18,0.4), rgba(5,10,18,0.9));
+}
+
+/* Чтобы текст не ушел под затемнение, добавьте его контейнеру z-index: 2 */
+.hero-content {
+   position: relative;
+  z-index: 2;
+  max-width: 1400px;        /* Максимальная ширина текстовой зоны */
+  width: 100%;
+  margin: 0 auto;           /* Центрируем сам контейнер на огромных экранах */
+  padding-left: 3%;         /* Сдвиг текста от левого края экрана (подберите под себя) */
+  padding-right: 20px;
+  text-align: left;         /* Переносим выравнивание текста налево */
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;  /* Прижимаем внутренние элементы (кнопки, строки) влево */
+}
+
+
+/* 1. Главное слово SAIGENS — делаем максимально крупным */
+.hero-title {
+  font-family: 'Orbitron', sans-serif;
+  font-size: clamp(3rem, 13vw, 7rem); /* Увеличили масштаб */
+  font-weight: 900;
+  color: #ffffff;
+  letter-spacing: 6px;
+  line-height: 0.9;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+}
+
+.hero-subtitle {
+  font-family: 'Montserrat', sans-serif;
+  font-size: clamp(0.75rem, 2vw, 0.95rem); /* Размер для нижней строки */
+  font-weight: 500;
+  letter-spacing: 2px;
+  line-height: 1.8;
+  color: #e2e8f0;
+  margin-bottom: 40px;
+  animation: flyInLeft 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation-delay: 0.2s; /* Начнет двигаться чуть позже главного слова */
+  text-transform: uppercase;
+  opacity: 0.85;
+  color: #e2e8f0;
+}
+
+/* 3. Строка металлов — делаем крупнее и жирнее */
+.hero-subtitle .large-text {
+  font-size: clamp(1em, 3.5vw, 1.4rem); /* Увеличили размер металлов */
+  font-weight: 700;                        /* Сделали буквы жирными */
+  letter-spacing: 3px;                     /* Раздвинули буквы шире */
+  color: #ffffff;                          /* Чистый белый цвет */
+  display: inline-block;
+  margin-bottom: 6px;                      /* Отступ до нижней мелкой строки */
+}
+
+/* Кнопки */
+.hero-buttons {
+  display: flex;
+  justify-content: flex-start; /* Сдвигает кнопки влево вслед за текстом */
+  gap: 20px;
+  animation: fadeIn 1s ease forwards;
+  animation-delay: 0.5s; /* Появятся самыми последними */
+  opacity: 0;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 28px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: all 0.3s ease;
+}
+
+.btn-primary {
+  background-color: #ffffff;
+  color: #050a12;
+} 
+
+.btn-primary i {
+  transition: transform 0.3s ease;
+}
+
+/* Второстепенная кнопка (Прозрачная с рамкой) */
+.btn-secondary:hover {
+  background-color: #ffffff;
+  color: #050a12; /* Инвертируем цвета */
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(255, 255, 255, 0.1);
+}
+
+ .btn-primary:hover {
+  background-color: #ffffff;
+  transform: translateY(-3px); /* Кнопка слегка приподнимается */
+  box-shadow: 0 10px 20px rgba(255, 255, 255, 0.2); /* Белое неоновое свечение */
+ }
+
+
+.btn-secondary {
+  border: 2px solid #ffffff;
+  color: #ffffff;
+}
+
+.btn-secondary:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  transform: translateY(-3px);
+}
+
+/* СЕТКА ХАРАКТЕРИСТИК (FEATURES) */
+.features-section {
+  background-color: #09101d;
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+}
+
+.features-grid {
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.feature-card {
+  flex: 1;
+  min-width: 240px;
+  text-align: center;
+  padding: 50px 30px;
+  position: relative;
+  transition: background-color 0.3s ease;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), 
+              background-color 0.4s ease, 
+              border-color 0.4s ease;
+  border: 1px solid transparent; /* Готовим невидимую рамку */
+}
+
+.feature-card:hover {
+   background-color: rgba(255, 255, 255, 0.03); /* Мягкое проявление фона карточки */
+  border-color: rgba(255, 255, 255, 0.1);     /* Появление тонкой технологичной рамки */
+  transform: translateY(-5px);                  /* Карточка плавно идет вверх */
+}
+
+.feature-card:not(:last-child)::after {
+  content: '';
+  position: absolute;
+  right: 0; top: 25%; height: 50%; width: 1px;
+  background-color: rgba(255,255,255,0.1);
+}
+
+.feature-icon {
+  /*font-size: 2rem;
+  margin-bottom: 20px;
+  color: #ffffff;
+  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), color 0.3s ease;
+  */width: 45px;
+  height: 45px;
+  margin-bottom: 20px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Сама SVG картинка */
+.card-svg-icon {
+  width: 100%;
+  height: 100%;
+  fill: #ffffff; /* Белый цвет для всех основных элементов */
+  color: #ffffff; /* Белый цвет для дополнительных линий (искр) */
+  display: block;
+}
+
+}
+
+.feature-card:hover .feature-icon {
+  transform: scale(1.15) rotate(5deg); /* Фирменный наклон иконки */
+
+}
+
+.feature-card h3 {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 0.85rem;
+  letter-spacing: 1px;
+  margin-bottom: 12px;
+}
+
+.feature-card p {
+  font-size: 0.75rem;
+  color: #8e96a3;
+  line-height: 1.5;
+}
+
+/* Контейнер всей секции */
+.projects-section {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 60px 40px;
+  background-color: #050a12; /* Глубокий темный фон */
+}
+
+
+/* Шапка секции */
+.projects-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  padding-bottom: 15px;
+}
+
+.projects-header a {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 1.5rem;
+  letter-spacing: 3px;
+  color: #ffffff;
+   text-decoration: none !important;
+  border-bottom: none !important;
+}
+
+/* Ссылка "VIEW ALL PROJECTS" с квадратиком вокруг стрелки */
+.view-all-link {
+  color: #a0a8b5;
+  text-decoration: none;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  display: inline-flex;
+  align-items: center;
+  gap: 15px;
+  transition: color 0.3s;
+  border-bottom: none;
+   outline: none !important;   
+}
+
+.view-all-link:hover {
+  color: #ffffff;
+}
+
+.arrow-box {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  background: transparent;
+  color: #ffffff; /* Цвет стрелочки внутри */
+  transition: border-color 0.3s ease, transform 0.3s ease;
+}
+
+/* Эффект при наведении на всю кнопку */
+.view-all-link:hover .arrow-box {
+  border-color: #ffffff;
+  transform: translateX(4px); /* Квадратик со стрелкой плавно сдвигается вправо */
+}
+
+/* УМНАЯ АСИММЕТРИЧНАЯ СЕТКА */
+.projects-masonry-grid {
+  display: grid;
+  /* Делим сетку на 12 равных частей по ширине */
+  grid-template-columns: repeat(12, 1fr);
+  /* Задаем фиксированные ряды по 190px в высоту */
+  grid-auto-rows: 190px;
+  gap: 15px; /* Зазор между рамками фотографий */
+}
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+/* Общие правила для всех ячеек */
+.project-item {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background-color: #0b111e;
+}
+
+.project-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Изображение заполняет блок без искажения пропорций */
+  display: block;
+  transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.project-item:hover .project-img {
+  transform: scale(1.04); /* Аккуратный зум при наведении */
+}
+
+/* 1. Большой левый катер: занимает с 1 по 4 колонку, высотой в 2 ряда */
+.item-1 {
+  grid-column: span 4;
+  grid-row: span 2;
+}
+
+/* 2. Высокая мачта: с 5 по 6 колонку, высотой в 2 ряда */
+.item-2 {
+  grid-column: span 2;
+  grid-row: span 2;
+}
+
+/* 3. Центральная верхняя платформа с лестницей */
+.item-3 {
+  grid-column: span 3;
+  grid-row: span 1;
+}
+
+/* 4. Маленький каркас на станине (снизу под лестницей) */
+.item-4 {
+  grid-column: span 3;
+  grid-row: span 1;
+}
+
+/* 5. Деталь катера с круглыми вырезами (рядом со станиной) */
+.item-5 {
+  grid-column: span 3;
+  grid-row: span 1;
+}
+
+/* 6. Нос катера в цеху (вверху справа) */
+.item-6 {
+  grid-column: span 3;
+  grid-row: span 1;
+}
+
+/* 7. Катер на воде (внизу справа) */
+.item-7 {
+  grid-column: span 3;
+  grid-row: span 1;
+}
+
+* АДАПТИВНОСТЬ ПОД МОБИЛЬНЫЕ ТЕЛЕФОНЫ И ПЛАНШЕТЫ */
+@media (max-width: 1024px) {
+  .projects-masonry-grid {
+    grid-template-columns: repeat(2, 1fr); /* На планшетах перестраиваем в 2 колонки */
+    grid-auto-rows: 250px;
+  }
+  .item-1, .item-2, .item-3, .item-4, .item-5, .item-6, .item-7 {
+    grid-column: span 1 !important;
+    grid-row: span 1 !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .projects-section {
+    padding: 40px 20px;
+  }
+  .projects-masonry-grid {
+    grid-template-columns: 1fr; /* На телефонах всё встает в одну ленту */
+    grid-auto-rows: 220px;
+  }
+}
+
+/* Базовая заглушка, заменяется свойством background или тегом img */
+.img-placeholder {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(45deg, #111924, #1b2635);
+  transition: transform 0.5s ease;
+}
+
+.project-item:hover .img-placeholder {
+  transform: scale(1.05); /* Зум-эффект фото */
+}
+
+/* Основной контейнер всей секции */
+.stats-section {
+  background-color: #050a12; /* Глубокий темный фон */
+  padding: 40px 20px;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* Сетка, которая выстраивает 4 элемента в ряд */
+.stats-grid {
+  max-width: 1300px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+/* Каждый отдельный элемент статистики */
+.stat-item {
+  display: flex;         /* Включаем flex, чтобы иконка и текст встали в линию */
+  align-items: center;   /* Центрируем иконку и текст по вертикали относительно друг друга */
+  gap: 18px;             /* Расстояние между иконкой и цифрой */
+  justify-content: center;
+  position: relative;
+}
+
+/* Полупрозрачные разделительные линии между блоками (как на скриншоте) */
+.stat-item:not(:last-child)::after {
+  content: '';
+  position: absolute;
+  right: -10px;
+  top: 20%;
+  height: 60%;
+  width: 1px;
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Стили для контейнера иконки */
+.stat-icon {
+  width: 32px;           /* Размер иконки на десктопе */
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;        /* Запрещаем иконке сжиматься */
+  color: rgba(255, 255, 255, 0.85); /* Цвет контурных линий */
+}
+
+.stat-icon svg {
+  width: 100%;
+  height: 100%;
+}
+
+/* Текстовая обертка для цифры и подписи */
+.stat-info {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;              /* Расстояние между цифрой и мелким текстом */
+}
+
+.stat-number {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 2.2rem;
+  font-weight: 900;
+  line-height: 1;
+}
+
+/* Стили цифр счетчика */
+.stat-number, .stat-number-static {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 1.8rem;     /* Размер шрифта цифр */
+  font-weight: 900;
+  line-height: 1;
+  color: #ffffff;
+  letter-spacing: 1px;
+}
+
+/* Стили мелких подписей под цифрами */
+.stat-label {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.58rem;    /* Очень мелкий аккуратный шрифт как на фото */
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  color: rgba(255, 255, 255, 0.6); /* Серый цвет подписи */
+  text-transform: uppercase;
+}
+
+/* ФУТЕР И КОНТАКТНАЯ ФОРМА */
+.site-footer {
+  background-color: #050a12;
+  padding: 80px 20px 30px 20px;
+}
+
+.footer-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 80px;
+  margin-bottom: 60px;
+}
+
+.footer-about-text {
+  font-size: 0.85rem;
+  color: #8e96a3;
+  line-height: 1.6;
+  margin: 25px 0;
+  max-width: 450px;
+}
+
+.contact-details p {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  font-size: 0.85rem;
+  margin-bottom: 15px;
+  color: #ffffff;
+  font-weight: 500;
+}
+
+.contact-details i {
+  color: #8e96a3;
+  width: 15px;
+}
+
+/* Стилизация формы */
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.form-row {
+  display: flex;
+  gap: 15px;
+}
+
+.form-row input, .form-row textarea {
+  flex: 1;
+  background-color: #09101d;
+  border: 1px solid #1c2635;
+  padding: 15px;
+  color: #ffffff;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.85rem;
+  outline: none;
+  transition: border-color 0.3s ease;
+}
+
+.form-row input:focus, .form-row textarea:focus {
+  border-color: #ffffff; /* Белая обводка активного поля */
+}
+
+.btn-submit {
+  background-color: #ffffff;
+  color: #050a12;
+  border: none;
+  padding: 16px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+.btn-submit:hover {
+  background-color: #cbd5e1;
+  transform: translateY(-2px);
+}
+
+.footer-bottom {
+  max-width: 1400px;
+  margin: 0 auto;
+  border-top: 1px solid rgba(255,255,255,0.05);
+  padding-top: 30px;
+  text-align: center;
+  font-size: 0.65rem;
+  color: #525b66;
+  letter-spacing: 1px;
+}
+
+.lang-btn {
+  background: transparent; /* Полностью убирает серый фон браузера */
+  border: none;
+  padding: 0;              /* Убирает лишние внутренние отступы кнопки */
+  margin: 0;
+  color: #a0a8b5;          /* Цвет букв неактивного языка */
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: color 0.3s ease;
+  outline: none;           /* Убирает обводку при клике в некоторых браузерах */
+}
+
+.lang-btn:hover, .lang-btn.active {
+  color: #ffffff;          /* Белый цвет букв для активного языка */
+  background: transparent; /* Гарантирует отсутствие фона при наведении */
+}
+
+/* АДАПТИВНОСТЬ ПОД ТЕЛЕФОНЫ */
+@media (max-width: 992px) {
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr); /* На планшетах в 2 ряда по 2 колонки */
+    gap: 40px 20px;
+  }
+  .stat-item:not(:last-child)::after {
+    display: none; /* Убираем линии на мобильных */
+  }
+}
+
+@media (max-width: 576px) {
+  .stats-grid {
+    grid-template-columns: 1fr; /* На телефонах всё в один вертикальный столбик */
+    gap: 30px;
+  }
+  .stat-item {
+    justify-content: flex-start; /* На смартфонах выравниваем по левому краю */
+    padding-left: 15%;
+  }
+}
+
+/* АНИМАЦИИ */
+@keyframes popIn {
+  0% { transform: scale(0.95); opacity: 0; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+.animate-pop {
+  animation: popIn 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Базовый класс для главного заголовка */
+.hero-title.animate-pop {
+  animation: flyInLeft 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  opacity: 0; /* Изначально скрываем, пока не начнется анимация */
+}
+
+/* ОПТИМИЗАЦИЯ ПОД МОБИЛЬНЫЕ УСТРОЙСТВА (МЕДИА-ЗАПРОСЫ) */
+@media (max-width: 1024px) {
+  .footer-container {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  .projects-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Сами правила анимаций */
+@keyframes flyInLeft {
+  0% {
+    transform: translateX(-50px); /* Начинаем левее на 50px */
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);     /* Встает в исходную точку */
+    opacity: 1;
+  }
+}
+
+@keyframes fadeIn {
+  0% { opacity: 0; transform: translateY(10px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 768px) {
+  .main-nav {
+    display: none; /* Для полноценного продакшена тут пишется мобильное Бургер-меню */
+  }
+  .hero-buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+  .btn {
+    width: 100%;
+    max-width: 280px;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  }
+  .feature-card:not(:last-child)::after {
+    display: none;
+  }
+  .projects-grid {
+    grid-template-columns: 1fr;
+  }
+  .stats-grid {
+    grid-template-columns: 1fr;
+  }
+  .form-row {
+    flex-direction: column;
+  }
+}
