@@ -845,7 +845,7 @@ html {
     position: fixed !important;
     top: 0 !important;
     right: -100% !important; /* Изначально спрятано */
-    width: 75% !important;   /* Занимает 75% ширины экрана */
+    width: 20% !important;   /* Занимает 75% ширины экрана */
     height: 100% !important; /* Вместо 100vh пишем 100% для стабильности на смартфонах */
     background-color: #050a12 !important; /* Плотный цвет фона, без прозрачности */
     
