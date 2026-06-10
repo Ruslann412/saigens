@@ -870,21 +870,27 @@ html {
   }
   
   /* ВЫЕЗЖАЮЩАЯ БОКОВАЯ ПАНЕЛЬ МЕНЮ */
-  .main-nav {
+ .main-nav {
     position: fixed !important;
     top: 0 !important;
     right: -100% !important; 
     width: 35% !important;   
     min-width: 250px !important; 
     height: 100% !important; 
-    background-color: #050a12 !important; 
+    
+    /* ИЗМЕНЕНО: Полностью убрали цвет фона и размытие */
+    background: transparent !important; 
+    backdrop-filter: none !important;
+    border-left: none !important;
+    box-shadow: none !important;
+    
     display: flex !important;
     flex-direction: column !important;
     align-items: flex-start !important;
     justify-content: flex-start !important;
     gap: 25px !important;
     padding: 90px 30px !important; 
-    z-index: 99998 !important; /* Слой строго под кнопкой */
+    z-index: 99998 !important; 
     transition: right 0.3s ease-out !important; 
   }
 
