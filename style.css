@@ -840,7 +840,7 @@ html {
     right: -100% !important; /* Изначально полностью спрятано */
     
     /* ИЗMЕНЕНО: теперь меню занимает 40% ширины экрана вместо 75% */
-    width: 40% !important;   
+    width: 35% !important;   
     /* Защита для узких экранов: меню не станет меньше 280 пикселей */
     min-width: 280px !important; 
     
@@ -881,6 +881,30 @@ html {
   
   .lang-btn {
     font-size: 1.1rem; /* Увеличили кнопки PL и EN для телефонов */
+  }
+  /* 1. Сбрасываем десктопные отступы у ссылок, которые могут распирать блок */
+  .main-nav a {
+    font-size: 1.1rem;
+    width: 100% !important;
+    padding: 10px 0 !important;
+    margin: 0 !important; /* Обнулили внешние отступы */
+    box-sizing: border-box !important;
+  }
+
+  /* 2. Гарантируем, что контейнер языков не шире самого меню */
+  .main-nav .lang-switch {
+    margin-left: 0 !important;
+    margin-top: 20px !important;
+    gap: 15px !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  /* 3. Ограничиваем минимальную ширину до минимума для узких экранов */
+  .main-nav, .main-nav.open {
+    width: 35% !important;
+    min-width: 240px !important; /* Уменьшили до 240px, чтобы меню гарантированно сжалось */
   }
 }
 
