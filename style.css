@@ -841,23 +841,28 @@ html {
     z-index: 2000 !important; /* Кнопка должна быть выше выезжающей панели */
   }
 
-  /* 2. Выезжающая панель навигации */
-  .main-nav {
+   .main-nav {
     position: fixed !important;
-    top: 0;
-    right: -100%; 
-    width: 70%;   
-    height: 100vh;
-    background-color: #050a12 !important; /* Жестко задаем плотный темный фон */
+    top: 0 !important;
+    right: -100% !important; /* Изначально спрятано */
+    width: 75% !important;   /* Занимает 75% ширины экрана */
+    height: 100% !important; /* Вместо 100vh пишем 100% для стабильности на смартфонах */
+    background-color: #050a12 !important; /* Плотный цвет фона, без прозрачности */
+    
     display: flex !important;
-    flex-direction: column;
-    z-index: 1500 !important; /* Панель должна быть поверх всего сайта */
-    transition: right 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    justify-content: flex-start !important;
+    gap: 25px !important;
+    padding: 80px 30px !important;
+    
+    z-index: 99998 !important; /* Чуть ниже кнопки-бургера */
+    transition: right 0.3s ease-out !important; /* Быстрая и плавная анимация */
   }
 
-  /* Класс, который активирует появление меню (будет добавляться через JavaScript) */
+   /* Класс появления */
   .main-nav.open {
-    right: 0; /* Меню выезжает на экран */
+    right: 0 !important; /* Меню выезжает ровно к правому краю */
   }
 
   /* Делаем ссылки на телефонах крупнее, чтобы по ним было удобно нажимать пальцем */
