@@ -581,7 +581,28 @@ if (clientForm) {
     }
   });
 }
+  
+  // Логика работы мобильного бургер-меню
+const burgerToggle = document.getElementById('burgerToggle');
+const mainNav = document.getElementById('mainNav');
+const navLinks = document.querySelectorAll('.main-nav a');
 
+if (burgerToggle && mainNav) {
+  // 1. Открытие/закрытие по клику на сам бургер
+  burgerToggle.addEventListener('click', () => {
+    burgerToggle.classList.toggle('open');
+    mainNav.classList.toggle('open');
+  });
+
+  // 2. Автоматическое закрытие меню при клике на любую ссылку (чтобы сайт плавно скроллился к блоку)
+  navLinks.forEach(link => {
+    link.addEventListener('click', () => {
+      burgerToggle.classList.remove('open');
+      mainNav.classList.remove('open');
+    });
+  });
+}
+  
 </script>
 
 </body>
