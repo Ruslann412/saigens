@@ -595,28 +595,35 @@ if (clientForm) {
     const navLinks = document.querySelectorAll('.main-nav a');
 
     if (burgerToggle && mainNav) {
-      // Универсальная функция, которая сработает на любом устройстве ровно 1 раз
-      function handleMenuToggle(e) {
+      // Функция переключения меню
+      function toggleMenu(e) {
         e.preventDefault();
         e.stopPropagation();
         
         burgerToggle.classList.toggle('open');
         mainNav.classList.toggle('open');
+        
+        // Эти строчки ОБЯЗАТЕЛЬНО должны появиться в консоли при нажатии:
+        console.log('--- НАЖАТИЕ СРАБОТАЛО ---');
+        console.log('Есть ли класс open у кнопки:', burgerToggle.classList.contains('open'));
+        console.log('Есть ли класс open у панели:', mainNav.classList.contains('open'));
       }
 
-      // Используем pointerdown — это современный стандарт, объединяющий клик мыши и тап пальцем
-      burgerToggle.addEventListener('pointerdown', handleMenuToggle);
+      // Навешиваем сразу два типа событий для ПК и телефонов
+      burgerToggle.addEventListener('click', toggleMenu);
+      burgerToggle.addEventListener('touchstart', toggleMenu, { passive: false });
 
-      // Закрытие меню при выборе любого пункта навигации
+      // Закрытие меню при клике на ссылки
       navLinks.forEach(link => {
-        link.addEventListener('pointerdown', () => {
+        const closeMenu = () => {
           burgerToggle.classList.remove('open');
           mainNav.classList.remove('open');
-        });
+        };
+        link.addEventListener('click', closeMenu);
+        link.addEventListener('touchstart', closeMenu);
       });
     }
   });
 </script>
-  
 </body>
 </html>
