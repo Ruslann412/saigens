@@ -581,28 +581,41 @@ if (clientForm) {
     }
   });
 }
-  
-  // Логика работы мобильного бургер-меню
-const burgerToggle = document.getElementById('burgerToggle');
-const mainNav = document.getElementById('mainNav');
-const navLinks = document.querySelectorAll('.main-nav a');
+</script>
 
-if (burgerToggle && mainNav) {
-  // 1. Открытие/закрытие по клику на сам бургер
-  burgerToggle.addEventListener('click', () => {
-    burgerToggle.classList.toggle('open');
-    mainNav.classList.toggle('open');
-  });
+  <script>
+  // Запускаем код только после полной загрузки страницы
+  document.addEventListener('DOMContentLoaded', () => {
+    const burgerToggle = document.getElementById('burgerToggle');
+    const mainNav = document.getElementById('mainNav');
+    const navLinks = document.querySelectorAll('.main-nav a');
 
-  // 2. Автоматическое закрытие меню при клике на любую ссылку (чтобы сайт плавно скроллился к блоку)
-  navLinks.forEach(link => {
-    link.addEventListener('click', () => {
-      burgerToggle.classList.remove('open');
-      mainNav.classList.remove('open');
-    });
+    // Проверяем в консоли, нашлись ли элементы
+    console.log('Бургер кнопка:', burgerToggle);
+    console.log('Панель меню:', mainNav);
+
+    if (burgerToggle && mainNav) {
+      burgerToggle.addEventListener('click', function(e) {
+        e.preventDefault();
+        e.stopPropagation(); // Отменяем всплытие события
+        
+        this.classList.toggle('open');
+        mainNav.classList.toggle('open');
+        
+        console.log('Клик сработал! Класс open добавлен? ', mainNav.classList.contains('open'));
+      });
+
+      // Закрытие меню при клике на ссылку
+      navLinks.forEach(link => {
+        link.addEventListener('click', () => {
+          burgerToggle.classList.remove('open');
+          mainNav.classList.remove('open');
+        });
+      });
+    } else {
+      console.error('Ошибка: JavaScript не нашел элементы #burgerToggle или #mainNav на странице!');
+    }
   });
-}
-  
 </script>
 
 </body>
