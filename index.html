@@ -51,28 +51,32 @@
           <span data-translate="logo_industrial" class="logo-sub">PRODUKCJA PRZEMYSŁOWA & SPAWANIE</span>
         </div>
       </div>
-          <!-- КНОПКА БУРГЕРА (Добавили этот блок) -->
+<!-- КНОПКА БУРГЕРА (Добавили этот блок) -->
     <button class="burger-toggle" id="burgerToggle" aria-label="Open menu">
       <span class="burger-bar"></span>
       <span class="burger-bar"></span>
       <span class="burger-bar"></span>
     </button>
-      <nav class="main-nav" id="mainNav">
-        <a href="#home" class="active"data-translate="menu_home">HOME</a>
-        <a href="#about"data-translate="menu_about">ABOUT US</a>
-        <a href="#services"data-translate="menu_services">SERVICES</a>
-        <a href="#projects"data-translate="menu_projects">PROJECTS</a>
-        <a href="#gallery"data-translate="menu_gallery">GALLERY</a>
-        <a href="#whyus"data-translate="menu_whyus">WHY US</a>
-        <a href="#contact"data-translate="menu_contact">CONTACT</a>
-        <div class="lang-switch">
-  <button class="lang-btn active" data-lang="pl">PL</button>
-  <span>|</span>
-  <button class="lang-btn" data-lang="en">EN</button>
-</div>
-      </nav>
-    </div>
-  </header>
+
+    <!-- Ваше меню навигации (Добавили id="mainNav") -->
+    <nav class="main-nav" id="mainNav">
+      <a href="#home" class="active" data-translate="menu_home">HOME</a>
+      <a href="#about" data-translate="menu_about">ABOUT US</a>
+      <a href="#services" data-translate="menu_services">SERVICES</a>
+      <a href="#projects" data-translate="menu_projects">PROJECTS</a>
+      <a href="#gallery" data-translate="menu_gallery">GALLERY</a>
+      <a href="#whyus" data-translate="menu_whyus">WHY US</a>
+      <a href="#contact" data-translate="menu_contact">CONTACT</a>
+      
+      <div class="lang-switch">
+        <button class="lang-btn active" data-lang="pl">PL</button>
+        <span>|</span>
+        <button class="lang-btn" data-lang="en">EN</button>
+      </div>
+    </nav>
+
+  </div>
+</header>
 
   <!-- HERO SECTION -->
   <section id="home" class="hero-section">
@@ -581,42 +585,45 @@ if (clientForm) {
     }
   });
 }
+
 </script>
 
-  <script>
-  // Запускаем код только после полной загрузки страницы
+<script>
   document.addEventListener('DOMContentLoaded', () => {
     const burgerToggle = document.getElementById('burgerToggle');
     const mainNav = document.getElementById('mainNav');
     const navLinks = document.querySelectorAll('.main-nav a');
 
-    // Проверяем в консоли, нашлись ли элементы
-    console.log('Бургер кнопка:', burgerToggle);
-    console.log('Панель меню:', mainNav);
-
     if (burgerToggle && mainNav) {
-      burgerToggle.addEventListener('click', function(e) {
+      // Функция переключения меню
+      function toggleMenu(e) {
         e.preventDefault();
-        e.stopPropagation(); // Отменяем всплытие события
+        e.stopPropagation();
         
-        this.classList.toggle('open');
+        burgerToggle.classList.toggle('open');
         mainNav.classList.toggle('open');
         
-        console.log('Клик сработал! Класс open добавлен? ', mainNav.classList.contains('open'));
-      });
+        // Эти строчки ОБЯЗАТЕЛЬНО должны появиться в консоли при нажатии:
+        console.log('--- НАЖАТИЕ СРАБОТАЛО ---');
+        console.log('Есть ли класс open у кнопки:', burgerToggle.classList.contains('open'));
+        console.log('Есть ли класс open у панели:', mainNav.classList.contains('open'));
+      }
 
-      // Закрытие меню при клике на ссылку
+      // Навешиваем сразу два типа событий для ПК и телефонов
+      burgerToggle.addEventListener('click', toggleMenu);
+      burgerToggle.addEventListener('touchstart', toggleMenu, { passive: false });
+
+      // Закрытие меню при клике на ссылки
       navLinks.forEach(link => {
-        link.addEventListener('click', () => {
+        const closeMenu = () => {
           burgerToggle.classList.remove('open');
           mainNav.classList.remove('open');
-        });
+        };
+        link.addEventListener('click', closeMenu);
+        link.addEventListener('touchstart', closeMenu);
       });
-    } else {
-      console.error('Ошибка: JavaScript не нашел элементы #burgerToggle или #mainNav на странице!');
     }
   });
 </script>
-
 </body>
 </html>

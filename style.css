@@ -835,28 +835,24 @@ html {
 @media (max-width: 820px) {
   
   /* Показываем кнопку бургер-меню */
-  .burger-toggle {
-    display: flex;
+   .burger-toggle {
+    display: flex !important;
+    position: relative;
+    z-index: 2000 !important; /* Кнопка должна быть выше выезжающей панели */
   }
 
-   /* Перестраиваем горизонтальное меню в вертикальное выезжающее окно */
+  /* 2. Выезжающая панель навигации */
   .main-nav {
-    position: fixed;
+    position: fixed !important;
     top: 0;
-    right: -100%; /* Изначально меню спрятано полностью за правым краем экрана */
-    width: 70%;   /* Занимает 70% ширины экрана смартфона */
+    right: -100%; 
+    width: 70%;   
     height: 100vh;
-    background-color: rgba(5, 10, 18, 0.98); /* Глубокий темный фон */
-    backdrop-filter: blur(15px);
-    border-left: 1px solid rgba(255, 255, 255, 0.05);
-    padding: 100px 40px; /* Отступы сверху, чтобы ссылки не упирались в шапку */
-    display: flex;
+    background-color: #050a12 !important; /* Жестко задаем плотный темный фон */
+    display: flex !important;
     flex-direction: column;
-    align-items: flex-start;
-    justify-content: flex-start;
-    gap: 30px; /* Расстояние между вертикальными ссылками */
-    transition: right 0.4s cubic-bezier(0.16, 1, 0.3, 1); /* Эффект скольжения */
-    z-index: 1000;
+    z-index: 1500 !important; /* Панель должна быть поверх всего сайта */
+    transition: right 0.4s cubic-bezier(0.16, 1, 0.3, 1);
   }
 
   /* Класс, который активирует появление меню (будет добавляться через JavaScript) */
